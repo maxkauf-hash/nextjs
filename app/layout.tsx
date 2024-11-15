@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/navigation/header";
 import Footer from "@/components/footer";
 import { SessionProvider } from "@/context/session-provider";
-import { ShoppingCartProvider } from "@/context/cart-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,11 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="w-full flex flex-col">
         <SessionProvider>
-          <ShoppingCartProvider>
-            <Header />
-            {children}
-            <Footer />
-          </ShoppingCartProvider>
+          <Header />
+          {children}
+          <Footer />
         </SessionProvider>
       </body>
     </html>

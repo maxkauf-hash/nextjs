@@ -6,7 +6,6 @@ import Menu from "./menu";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { logout } from "@/actions/users/login-actions";
-import { useCart } from "@/context/cart-provider";
 
 const Header = () => {
   const session = useSession();
