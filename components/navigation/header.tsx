@@ -9,7 +9,6 @@ import { logout } from "@/actions/users/loginAction";
 
 const Header = () => {
   const session = useSession();
-  const { cartQuantity } = useCart();
   return (
     <header className="h-20">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
