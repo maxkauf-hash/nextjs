@@ -30,7 +30,6 @@ const Header = () => {
             </>
           )}
         </div>
-        <div className="text-black">{cartQuantity}</div>
       </nav>
     </header>
   );
