@@ -6,7 +6,9 @@ import bcrypt from "bcryptjs";
 import { LoginUserSchema } from "@/schemas/login-schema";
 import { createSession, deleteSession } from "@/lib/session";
 import { redirect } from "next/navigation";
-import { prisma } from "@/lib/prisma-client";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 const login = async (values: z.infer<typeof LoginUserSchema>) => {
   const validateFields = LoginUserSchema.safeParse(values);

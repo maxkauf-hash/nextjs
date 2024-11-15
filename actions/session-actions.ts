@@ -1,5 +1,6 @@
+import { PrismaClient, Prisma } from "@prisma/client";
 
-import { prisma } from '@/lib/prisma-client';
+const prisma = new PrismaClient();
 
 export const createSession = async (data: Prisma.SessionCreateInput) => {
   return prisma.session.create({
@@ -17,7 +18,10 @@ export const getAllSessions = async () => {
   return prisma.session.findMany();
 };
 
-export const updateSession = async (id: string, data: Prisma.SessionUpdateInput) => {
+export const updateSession = async (
+  id: string,
+  data: Prisma.SessionUpdateInput
+) => {
   return prisma.session.update({
     where: { id },
     data,
