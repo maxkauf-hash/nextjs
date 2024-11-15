@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession } from "@/context/session-provider";
+import { useSession } from "@/context/sessionProvider";
 
 export default function Page() {
   const { user } = useSession();

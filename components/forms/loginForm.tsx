@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/form";
 import { z } from "zod";
 import { Input } from "@/components/ui/input";
-import { LoginUserSchema } from "@/schemas/login-schema";
-import login from "@/actions/users/login-actions";
+import { LoginUserSchema } from "@/schemas/loginSchema";
+import login from "@/actions/users/loginAction";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { redirect } from "next/navigation";

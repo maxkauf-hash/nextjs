@@ -1,11 +1,11 @@
 "use client";
 
-import { useSession } from "@/context/session-provider";
+import { useSession } from "@/context/sessionProvider";
 import Logo from "./logo";
 import Menu from "./menu";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { logout } from "@/actions/users/login-actions";
+import { logout } from "@/actions/users/loginAction";
 
 const Header = () => {
   const session = useSession();

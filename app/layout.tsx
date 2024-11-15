@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/navigation/header";
 import Footer from "@/components/footer";
-import { SessionProvider } from "@/context/session-provider";
+import { SessionProvider } from "@/context/sessionProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",

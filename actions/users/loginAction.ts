@@ -3,7 +3,7 @@
 import * as z from "zod";
 import "server-only";
 import bcrypt from "bcryptjs";
-import { LoginUserSchema } from "@/schemas/login-schema";
+import { LoginUserSchema } from "@/schemas/loginSchema";
 import { createSession, deleteSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { PrismaClient } from "@prisma/client";

@@ -1,14 +1,13 @@
 import React, { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterUserSchema } from "@/schemas/register-schemas";
+import { RegisterUserSchema } from "@/schemas/registerSchema";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
 import { z } from "zod";
 import { Input } from "../ui/input";
-import { UsersModelFields } from "@/lib/modelsFields";
-import register from "@/actions/users/register-actions";
-import FormError from "./form-error";
-import FormSuccess from "./form-success";
+import register from "@/actions/users/registerAction";
+import FormError from "./formError";
+import FormSuccess from "./formSuccess";
 
 const RegisterForm = () => {
   const [isPending, startTransition] = useTransition();

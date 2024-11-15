@@ -3,7 +3,7 @@
 import * as z from "zod";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
-import { RegisterUserSchema } from "@/schemas/register-schemas";
+import { RegisterUserSchema } from "@/schemas/registerSchema";
 
 const prisma = new PrismaClient();
 
