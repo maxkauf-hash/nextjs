@@ -5,26 +5,12 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider        = "prisma-client-js"
-  engineType      = "library"
-  previewFeatures = ["fullTextSearch"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider  = "mysql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_DATABASE_URL")
-}
-
-model Products {
-  id                String         @id @default(uuid())
-  name              String
-  description       String
-  price             Float
-  photo             String
-  quantity          Int
-  creationTimestamp DateTime?
-  OrderDetails      OrderDetails[]
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model Users {
@@ -33,36 +19,15 @@ model Users {
   lastName           String
   email              String    @unique
   password           String
-  role               String?    @default("user")
+  role               String?   @default("user")
   address            String
   zip                String
   city               String
   phone              String
-  creationTimestamp  DateTime?  @default(now())
+  creationTimestamp  DateTime? @default(now())
   connexionTimestamp DateTime?
-  email_verified     Boolean?   @default(false)
-  orders             Orders[]
+  email_verified     Boolean?  @default(false)
   Session            Session[]
-}
-
-model Orders {
-  id                String         @id @default(uuid())
-  user              Users          @relation(fields: [userId], references: [id])
-  userId            String
-  totalAmount       Float
-  creationTimestamp DateTime?
-  status            String         @default("not payed")
-  orderDetails      OrderDetails[]
-}
-
-model OrderDetails {
-  id        String   @id @default(uuid())
-  order     Orders   @relation(fields: [orderId], references: [id])
-  orderId   String
-  product   Products @relation(fields: [productId], references: [id])
-  productId String
-  quantity  Int
-  total     Float
 }
 
 model Session {
