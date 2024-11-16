@@ -35,6 +35,14 @@ export async function decrypt(session: string | undefined = "") {
 export async function createSession(id: string) {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
+  const existingSession = await prisma.session.findFirst({
+    where: { userId: id },
+  });
+
+  if (existingSession?.id) {
+    await prisma.session.delete({ where: { id: existingSession.id } });
+  }
+
   // 1. Create a session in the database
   const data = await prisma.session.create({
     data: {
