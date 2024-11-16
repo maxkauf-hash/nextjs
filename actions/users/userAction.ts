@@ -1,7 +1,5 @@
-import { PrismaClient, Prisma } from "@prisma/client";
-import { withAccelerate } from "@prisma/extension-accelerate";
-
-const prisma = new PrismaClient().$extends(withAccelerate());
+import { Prisma } from "@prisma/client";
+import { prisma } from "@/lib/prismaClient";
 
 export const createUsers = async (data: Prisma.UsersCreateInput) => {
   return prisma.users.create({

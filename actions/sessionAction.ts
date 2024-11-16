@@ -1,7 +1,5 @@
 import { PrismaClient, Prisma } from "@prisma/client";
-import { withAccelerate } from "@prisma/extension-accelerate";
-
-const prisma = new PrismaClient().$extends(withAccelerate());
+import { prisma } from "@/lib/prismaClient";
 
 export const createSession = async (data: Prisma.SessionCreateInput) => {
   return prisma.session.create({
