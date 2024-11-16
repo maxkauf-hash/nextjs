@@ -18,6 +18,11 @@ export async function encrypt(payload: SessionPayload) {
 }
 
 export async function decrypt(session: string | undefined = "") {
+  if (!session) {
+    console.error("Aucune session fournie pour la décryption.");
+    return null; // ou une autre valeur par défaut
+  }
+
   try {
     const { payload } = await jwtVerify(session, encodedKey, {
       algorithms: ["HS256"],
