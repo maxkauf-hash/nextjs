@@ -4,10 +4,11 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { PrismaClient } from "@prisma/client";
 import { SessionPayload } from "@/lib/types";
+import { withAccelerate } from "@prisma/extension-accelerate";
 
+const prisma = new PrismaClient().$extends(withAccelerate());
 const secretKey = process.env.SECRET_KEY;
 const encodedKey = new TextEncoder().encode(secretKey);
-const prisma = new PrismaClient();
 
 export async function encrypt(payload: SessionPayload) {
   return new SignJWT(payload)

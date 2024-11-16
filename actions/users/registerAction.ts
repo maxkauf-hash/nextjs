@@ -4,8 +4,9 @@ import * as z from "zod";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 import { RegisterUserSchema } from "@/schemas/registerSchema";
+import { withAccelerate } from "@prisma/extension-accelerate";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient().$extends(withAccelerate());
 
 const register = async (values: z.infer<typeof RegisterUserSchema>) => {
   const validateFields = RegisterUserSchema.safeParse(values);
